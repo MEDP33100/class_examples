@@ -15,3 +15,5 @@
    1. `example1`: Animations with GSAP
    2. `example2`: Animated clouds with GSAP ScrollTrigger
    3. `example3`: Ice cream bar graph animations
+5. `class5`: Javascript classes
+   1. `library_example`: Library page example

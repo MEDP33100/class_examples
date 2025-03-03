@@ -1,0 +1,37 @@
+span {
+    font-size: 50px;
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+.spin {
+    transform: rotate(0);
+    transition: transform ease-in 500ms;
+}
+
+.spin:hover {
+    transform: rotate(360deg);
+
+}
+
+.bounce {
+    transition: transform ease-in 100ms;
+}
+
+.bounce:hover {
+    transform: translateY(-10px);
+}
+
+.lick {
+    animation: lick 500ms linear 0s infinite alternate;
+}
+
+@keyframes lick {
+    0% {
+        transform: scale(1) translateY(0);
+    }
+
+    100% {
+        transform: scale(1.25) translateY(10px);
+    }
+}

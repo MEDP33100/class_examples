@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DOM Manipulation Exercise</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            display: inline-block;
+        }
+
+        #box1 {
+            background-color: lightblue;
+        }
+
+        #box2 {
+            background-color: lightcoral;
+        }
+
+        #box3 {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="mainTitle">Welcome to the Page</h1>
+
+    <div class="box" id="box1"></div>
+    <div class="box" id="box2"></div>
+    <div class="box" id="box3"></div>
+
+    <p class="description">This is a simple exercise to manipulate the DOM.</p>
+
+    <div id="container">Add a paragraph here:</div>
+
+    <button onclick="changeText()">Change Title Text</button>
+    <button onclick="changeColors()">Change Box Colors</button>
+    <button onclick="toggleDescription()">Toggle Description</button>
+    <button onclick="addParagraph()">Add a paragraph</button>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

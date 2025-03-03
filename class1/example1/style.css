@@ -1,0 +1,73 @@
+/* 
+Style the <h1> Tag 
+- Change the font color of the <h1> tag to blue 
+- Set the font size of the <h1> tag to 36px 
+- Add a bottom border of 2px solid black to the <h1> tag  */
+h1 {
+    color: blue;
+    font-size: 40px;
+    border-bottom: 2px solid black;
+}
+
+
+/* 
+Style the <p> Tag 
+- Change the text color of the <p> tag to green 
+- Set the font size of the <p> tag to 18px 
+- Add 10px padding to all sides of the <p> tag 
+*/
+p {
+    color: green;
+    font-size: 18px;
+    padding: 10px;
+}
+
+/* 
+Style the <a> Tag 
+- Set the text color of the <a> tag to purple 
+- Remove the underline from the <a> tag 
+- Add a hover effect: when the user hovers over the <a> tag, change the text color to red 
+*/
+a {
+    color: purple;
+    text-decoration: none;
+
+}
+
+/* 
+Style the <ul> Tag 
+- Set the list-style of the <ul> tag to none 
+- Add a 2px solid gray border around the <ul> tag 
+- Add 10px padding to the <ul> tag 
+*/
+
+/* 
+Style the <li> Tags 
+- Set the font size of the <li> tags to 20px 
+- Add a 5px margin between each <li> tag 
+- Change the text color of the <li> tags to darkblue 
+*/
+
+/* 
+Add a Compound Selector 
+- Use a compound selector to style the first <li> element with the class "highlight" 
+- Set its background color to yellow and make the text bold 
+*/
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+}
+
+/* 
+Style with Descendant Selector 
+- Use the Descendant Selector (space) to target all <li> tags inside the <ul> 
+- Set the font size of those <li> tags to 22px 
+*/
+ul.list li {
+    font-size: 22px;
+}
+
+/* 
+Bonus Task 1: Apply a Box Shadow 
+- Apply a 5px 5px 10px rgba(0, 0, 0, 0.2) box-shadow to the <a> tag when hovered 
+*/

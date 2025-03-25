@@ -1,0 +1,19 @@
+{
+  "name": "medp-33100-week9",
+  "version": "1.0.0",
+  "description": "my first node js server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "server"
+  ],
+  "author": "doradocodes@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "http": "^0.0.1-security"
+  }
+}

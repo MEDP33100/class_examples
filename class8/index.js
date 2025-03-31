@@ -1,62 +1,28 @@
-// 1. Import the http library
+// 1. import the http library
 const { createServer } = require('http');
-
 const fs = require('fs');
 const path = require('path');
 
-// 2. Set the hostname and the port
-const hostname = '127.0.0.1' // = localhost:3000
-const port = 3001;
+// 2. set the hostname and the port
+const hostname = '127.0.0.1'; // 127.0.0.1 = localhost 
+const port = 3000; // port = can be 3000, 3001, 8000, 8001...
 
-// 3. Create a new server with createServer() from http
-const server = createServer(function (request, response) {
-    // Handle root path request
-    if (request.url === '/' || request.url === '/index.html') {
-        const pathToIndexHtml = path.join(__dirname, 'index.html');
-        fs.readFile(pathToIndexHtml, 'utf8', (err, data) => {
-            if (err) {
-                console.error(err);
-                response.statusCode = 404;
-                response.setHeader('Content-Type', 'text/plain')
-                response.end('Sorry file not found.');
-                return;
-            }
-            response.statusCode = 200;
-            response.setHeader('Content-Type', 'text/html');
-            response.end(data);
-        });
-        return;
-    }
-
-    // Handle other file types
-    const ext = path.extname(request.url);
-    if (ext === '.js' || ext === '.css') {
-        const filePath = path.join(__dirname, request.url);
-        fs.readFile(filePath, 'utf8', (err, data) => {
-            if (err) {
-                console.error(err);
-                response.statusCode = 404;
-                response.setHeader('Content-Type', 'text/plain')
-                response.end('File not found.');
-                return;
-            }
-            response.statusCode = 200;
-            if (ext === '.js') {
-                response.setHeader('Content-Type', 'text/javascript');
-            } else if (ext === '.css') {
-                response.setHeader('Content-Type', 'text/css');
-            }
-            response.end(data);
-        });
-    } else {
-        response.statusCode = 404;
-        response.setHeader('Content-Type', 'text/plain');
-        response.end('File type not supported.');
-    }
+// 3. Create a new server with createServer() 
+const server = createServer(function (req, res) {
+    // use fs to get the index.html file and return in the response
+    const filePath = path.join(__dirname, 'index.html')
+    fs.readFile(filePath, 'utf-8', function (error, data) {
+        if (error) {
+            console.log('couldnt find the file');
+            res.statusCode = 404;
+            res.setHeader('Content-Type', 'text/plain');
+            res.end('File not found.');
+            return;
+        }
+        res.statusCode = 200;
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end(data);
+    });
+}).listen(port, hostname, function () {
+    console.log('Server is running on port:', port)
 });
-
-// 5. Set the server to listen to the port
-server.listen(port, hostname, () => {
-    console.log('Server is listening to port:', port);
-})
-

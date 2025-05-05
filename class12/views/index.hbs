@@ -1,0 +1,11 @@
+<h1>{{title}}</h1>
+{{#each posts}}
+<div>
+    <p>{{this.title}}</p>
+    <p>{{this.content}}</p>
+    {{#each this.author}}
+        <p>{{this.username}}</p>
+    {{/each}}
+</div>
+
+{{/each}}

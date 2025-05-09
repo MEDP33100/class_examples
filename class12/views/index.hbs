@@ -1,11 +1,31 @@
 <h1>{{title}}</h1>
-{{#each posts}}
-<div>
-    <p>{{this.title}}</p>
-    <p>{{this.content}}</p>
-    {{#each this.author}}
-        <p>{{this.username}}</p>
+
+<form id="search_form">
+    <input id="search_field" type="text" placeholder="Enter search term" />
+    <input type="submit" value="Submit" />
+</form>
+
+<div id="posts">
+    {{#each posts}}
+    <div class="post" data-id="{{this._id}}">
+        <h2>{{this.title}}</h2>
+        <p class="content" data-id="{{this._id}}">
+            <span class="content_text">{{this.content}}</span>
+            <button class="edit_content_button">Edit</button>
+        </p>
+        <p>Posted on {{dateFormat this.createdAt "dddd, MMMM Do YYYY, h:mm a"}}</p>
+        {{#each this.author}}
+        <b>{{this.username}}</b>
+        {{/each}}
+        <button class="delete_button" data-id="{{this._id}}">Delete</button>
+    </div>
     {{/each}}
 </div>
 
-{{/each}}
+
+<h2>Create a new post</h2>
+<form id="new_post_form">
+    <input id="title_field" type="text" placeholder="Enter new title" />
+    <input id="content_field" type="text" placeholder="Enter new content" />
+    <input type="submit" value="Submit" />
+</form>

@@ -20,9 +20,20 @@ router.get('/', async function (req, res, next) {
             foreignField: '_id',
             as: 'author'
           }
-        }
+        },
+        {
+          $addFields: {
+            createdAt: {
+              $toDate: "$createdAt"
+            }
+          }
+        },
+        // Sort results
+        { $sort: { createdAt: -1 } }, // 1 = ascending, -1 = descending,
       ])
       .toArray();
+
+    console.log(allPosts);
     // 4. pass array to handlebars template
     res.render('index', {
       title: 'Blog',
